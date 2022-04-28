@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       // прописываем маршруты до страницы
       routes: <String, WidgetBuilder>{
         // пока корневая страница -- это RecentCalls
-        '/': (context) => const RecentCalls(),
+        '/': (context) =>  const RecentCalls(),
         '/info': (context) => const CallInfo(),
       },
     );
