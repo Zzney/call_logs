@@ -18,6 +18,7 @@ class _RecentCallsState extends State<RecentCalls> {
           'Журнал звонков',
           style: TextStyle(color: Colors.black),
         ),
+        elevation: 1,
         backgroundColor: const Color(0xffF9F9FB),
 
         systemOverlayStyle: const SystemUiOverlayStyle(
