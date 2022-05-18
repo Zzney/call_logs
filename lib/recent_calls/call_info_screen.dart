@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-class CallInfo extends StatelessWidget {
+class CallInfo extends StatelessWidget  {
   const CallInfo({Key? key}) : super(key: key);
 
   @override
