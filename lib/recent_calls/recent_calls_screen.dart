@@ -2,6 +2,7 @@ import 'package:call_logs/styles/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:call_logs/recent_calls/call_item.dart';
 import 'package:flutter/services.dart';
+import 'package:http/http.dart' as http;
 
 class RecentCalls extends StatefulWidget {
   const RecentCalls({Key? key}) : super(key: key);
@@ -33,14 +34,17 @@ class _RecentCallsState extends State<RecentCalls> {
         ),
 
       ),
-      body: ListView.separated(
-        itemBuilder: (_, int index) => const CallCard(),
-        separatorBuilder: (_, int index) => const Padding(
-          padding: EdgeInsets.only(left: 42),
-          child: Divider(thickness: 0.5, height: 0.5),
-        ),
-        itemCount: 300,
-        physics: const BouncingScrollPhysics(),
+      body: ListView(
+        children: [
+          CallCard(date: 'Вчера'),
+          CallCard(person_and_calls: 'Дядя Ваня (3)'),
+          FutureBuilder<http.Response>(
+            future: http.get(Uri.parse('https://raw.githubusercontent.com/Gammadov/data/main/calls/call_logs.json')),
+              builder: (context, snapshot) {
+              return Text(snapshot.data!.body);
+                return CallCard(additional: 'FaceTime video');
+              }),
+        ],
       ),
     );
   }
