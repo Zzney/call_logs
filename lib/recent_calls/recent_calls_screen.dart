@@ -38,17 +38,17 @@ class _RecentCallsState extends State<RecentCalls> {
               'https://raw.githubusercontent.com/Gammadov/data/main/calls/call_logs.json')),
           builder: (context, snapshot) {
             final decoded = jsonDecode(snapshot.data!.body);
-            final single_map = decoded[4];
-            return ListView(children: [
-              CallCard(date: 'Вчера'),
-              CallCard(call: 'Дядя Ваня (3)'),
-              CallCard(
-                call: single_map['person'],
-                additional: single_map['additional'],
-                date: single_map['date'],
-              ),
-              Text(snapshot.data!.body),
-            ]);
+
+            return ListView.builder(
+                itemCount: decoded.length,
+                itemBuilder: (context, index) {
+                  final single_map = decoded[index];
+                  return CallCard(
+                    call: single_map['person'],
+                    additional: single_map['additional'],
+                    date: single_map['date'],
+                  );
+                });
           }),
     );
   }
