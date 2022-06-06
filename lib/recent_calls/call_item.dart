@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 import '../styles/colors.dart';
 
 class CallCard extends StatefulWidget {
-  final String person_and_calls;
+  final String call;
   final String additional;
   final String date;
   const CallCard({
     Key? key,
-    this.person_and_calls = '+0 (000) 000-00-00',
+    this. call = '+0 (000) 000-00-00',
     this.additional = 'Доп. информация',
     this.date = 'Дата',
   }) : super(key: key);
@@ -37,7 +37,7 @@ class _CallCardState extends State<CallCard> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(widget.person_and_calls, style: AppTextStyle.bold17()),
+                Text(widget. call, style: AppTextStyle.bold17()),
                 Text(widget.additional, style: AppTextStyle.regular15()),
               ],
             ),
